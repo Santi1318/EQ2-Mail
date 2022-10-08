@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2 class="text-slate-700 my-2">{% block title %}Mensajes{% endblock %}</h2>
+  {% if g.user %}
+    <div class="flex justify-end">
+      <a class="action" href="{{ url_for('inbox.send') }}">Nuevo Mensaje</a>
+      <!--<a class="action" href="{{ url_for('inbox.getDB') }}"></a>-->
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for message in messages %}
+    <article class="post mx-4 mb-3 pl-2 border-l-4 border-slate-700">
+      <header>
+        <div>
+          <h3 class="text-lg">{{ message['subject'] }} from {{ message['username'] }} on {{ message['created'].strftime('%Y-%m-%d') }}</h3>
+        </div>
+      </header>
+      <p class="body text-slate-600">{{ message['body'] }}</p>
+    </article>
+  {% endfor %}
+{% endblock %}

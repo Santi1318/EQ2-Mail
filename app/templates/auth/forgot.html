@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2 class="text-slate-700 my-2">{% block title %}Recupere su contraseña{% endblock %}</h2>
+{% endblock %}
+
+{% block content %}
+  <form method="post" action="{{ url_for('auth.forgot')}}" class="px-4">
+    <label for="email">Escriba su correo electrónico</label>
+    <input type="email" name="email" id="email" class="rounded-md mb-6" required>
+    <!--<input type="submit" value="Recuperar" class="w-full bg-indigo-500 text-white rounded-md py-2 cursor-pointer">-->
+    <input type="submit" value="Recuperar" class="w-full bg-inline-block p-6 bg-gradient-to-r from-green-400 to-blue-400 text-white rounded-md py-2 cursor-pointer">
+  </form>
+{% endblock %}
