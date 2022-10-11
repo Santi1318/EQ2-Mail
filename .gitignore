@@ -132,3 +132,5 @@ app/cert.pem
 app/key.pem
 cert/cert.pem
 cert/key.pem
+/venv 
+/Inicio 
